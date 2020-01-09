@@ -1,0 +1,374 @@
+body {
+  margin: 0;
+}
+
+h1 {
+  font-size: 26px;
+}
+
+#backgroundImage {
+  top: 50%;
+  left: 50%;
+  position: fixed;
+  opacity: 0.3;
+  z-index: -1;
+  min-height: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.wrapper {
+  width: 90vw;
+  margin: 0 auto;
+  padding-top: 5vh;
+  text-align: center;
+}
+
+.board {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin: 3vh 0;
+}
+
+.board__area {
+  position: relative;
+  width: 20vw;
+  height: 15vh;
+  border: solid 1px black;
+  background-color: white;
+}
+
+.board__area img {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  max-width: 60%;
+  max-height: 60%;
+  z-index: 2;
+  opacity: 0.9;
+  -webkit-animation: showImage ease 1s forwards;
+          animation: showImage ease 1s forwards;
+  overflow: hidden;
+}
+
+.play > * {
+  display: block;
+  margin: 2vh auto;
+}
+
+#bid {
+  border: black 2px solid;
+  width: 50%;
+  height: 20px;
+}
+
+#start {
+  width: 20vw;
+  height: 30px;
+  text-transform: uppercase;
+  background-color: black;
+  color: white;
+}
+
+#start:hover {
+  cursor: pointer;
+  background-color: darkgray;
+}
+
+.game-info {
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+  min-height: 30vh;
+  overflow: hidden;
+}
+
+.game-info__checkWin {
+  width: 100%;
+  font-size: 18px;
+  font-weight: bold;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin-bottom: 20px;
+}
+
+.game-info__money {
+  color: white;
+  padding: 5 0;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.game-info__money--wrapper {
+  background: #22c332;
+  background: linear-gradient(302deg, #22c332 0%, #c4fd2d 100%);
+  border-radius: 10px;
+  -webkit-box-shadow: -5px -5px 10px lightgreen;
+          box-shadow: -5px -5px 10px lightgreen;
+  display: -ms-grid;
+  display: grid;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.game-info__money--wrapper button {
+  background-color: #a70a0a;
+  color: white;
+  margin: 2px 0;
+}
+
+.game-info__money--wrapper button:hover {
+  background-color: darkred;
+  cursor: pointer;
+}
+
+.game-info .grid1 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: 1/1/2/3;
+}
+
+.game-info .grid2 {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-area: 2/1/3/2;
+}
+
+.game-info .grid3 {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-area: 2/2/3/3;
+}
+
+.game-info .grid4 {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-area: 3/1/4/2;
+}
+
+.game-info .grid5 {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-area: 3/2/4/3;
+}
+
+.game-info .grid6 {
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: 4/1/5/3;
+}
+
+.game-info__results span {
+  display: block;
+}
+
+.game-info__results-table {
+  background-color: white;
+  overflow-x: auto;
+  -webkit-transform: translateY(50vh);
+          transform: translateY(50vh);
+}
+
+.game-info__results-table table,
+.game-info__results-table th,
+.game-info__results-table td {
+  border-collapse: collapse;
+  border: 1px solid black;
+  line-height: 1.5;
+  min-width: 40px;
+}
+
+.game-info__results-table #name-table {
+  text-align: center;
+}
+
+.game-info__results-table .left-column {
+  text-align: left;
+}
+
+.downResult {
+  position: absolute;
+  right: 10%;
+  bottom: 5%;
+}
+
+.downResult i {
+  height: 100%;
+  min-width: 20px;
+  min-height: 20px;
+  cursor: pointer;
+}
+
+.inactive {
+  display: none;
+}
+
+.active {
+  display: inline-block;
+}
+
+@media (max-width: 880px) and (min-width: 481px) {
+  h1 {
+    font-size: 31.2px;
+  }
+  .board__area {
+    width: 25vw;
+    height: 20vh;
+  }
+  .game-info {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    justify-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    min-height: 30vh;
+  }
+  .game-info__checkWin {
+    font-size: 22px;
+  }
+  .game-info__money {
+    -ms-flex-preferred-size: 1;
+        flex-basis: 1;
+    width: 20vw;
+  }
+  .game-info__money--wrapper {
+    width: 100%;
+    min-width: 150px;
+  }
+  .game-info__results {
+    min-width: 25%;
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+  .game-info__results-table {
+    -webkit-transform: none;
+            transform: none;
+  }
+  .game-info__results-table table,
+  .game-info__results-table th,
+  .game-info__results-table td {
+    border-collapse: collapse;
+    border: 1px solid black;
+    line-height: 1.2;
+    min-width: 25px;
+  }
+  .downResult {
+    display: none;
+  }
+}
+
+@media (min-width: 881px) {
+  h1 {
+    font-size: 39px;
+  }
+  .board__area {
+    height: 23vh;
+    width: 25vw;
+  }
+  .game-info {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    justify-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    min-height: 30vh;
+  }
+  .game-info__checkWin {
+    font-size: 22px;
+  }
+  .game-info__money {
+    -ms-flex-preferred-size: 1;
+        flex-basis: 1;
+    width: 20vw;
+  }
+  .game-info__money--wrapper {
+    width: 100%;
+    min-width: 150px;
+  }
+  .game-info__results {
+    min-width: 25%;
+  }
+  .game-info__results-table {
+    -webkit-transform: none;
+            transform: none;
+  }
+  .game-info__results-table table,
+  .game-info__results-table th,
+  .game-info__results-table td {
+    border-collapse: collapse;
+    border: 1px solid black;
+    line-height: 1.2;
+    min-width: 25px;
+  }
+  .downResult {
+    display: none;
+  }
+}
+
+@-webkit-keyframes showImage {
+  0% {
+    top: 50%;
+    opacity: 1;
+  }
+  10% {
+    top: 80%;
+    opacity: 0;
+  }
+  15% {
+    top: 20%;
+    opacity: 1;
+  }
+  100% {
+    top: 50%;
+    opacity: 1;
+  }
+}
+
+@keyframes showImage {
+  0% {
+    top: 50%;
+    opacity: 1;
+  }
+  10% {
+    top: 80%;
+    opacity: 0;
+  }
+  15% {
+    top: 20%;
+    opacity: 1;
+  }
+  100% {
+    top: 50%;
+    opacity: 1;
+  }
+}
+/*# sourceMappingURL=style.css.map */

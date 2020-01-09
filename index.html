@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Casino Slot Machine</title>
+</head>
+
+<body>
+    <!-- <img src="img/slot_machine_1280.jpg" alt="kasyno z maszynami do grania jak tło gry" id="backgroundImage"> -->
+    <img srcset="
+    img/slot_machine_480.jpg 480w,
+    img/slot_machine_880.jpg 880w,
+    img/slot_machine_1280.jpg 1280w" sizes="
+    (max-width: 480px) 480px,
+    (max-width: 880px) 880px,
+    (max-width: 1280px) 1280px" src="img/slot_machine_1280.jpg" id="backgroundImage" alt="kasyno">
+    <div class="wrapper">
+
+        <h1>Casino Slot Machine</h1>
+
+        <section class="board">
+            <div class="board__area area1"></div>
+            <div class="board__area area2"></div>
+            <div class="board__area area3"></div>
+        </section>
+
+        <section class="play">
+            <input type="number" placeholder="Podaj stawkę" id="bid">
+            <button id="start">Zakręć!</button>
+        </section>
+
+        <section class="game-info">
+            <div class="game-info__checkWin"></div>
+            <div class="game-info__money">
+                <div class="game-info__money--wrapper">
+                    <div class="grid1">
+                        Twoje środki: <span class="game-info__wallet"></span>
+                    </div>
+                    <div class="grid2">
+                        <button class="game-info__btnAdd1">Dodaj 1</button>
+                    </div>
+                    <div class="grid3">
+                        <button class="game-info__btnMinus1">Odejmij 1</button>
+                    </div>
+                    <div class="grid4">
+                        <button class="game-info__btnAdd5">Dodaj 5</button>
+                    </div>
+                    <div class="grid5">
+                        <button class="game-info__btnMinus5">Odejmij 5</button>
+                    </div>
+                    <div class="grid6">
+                        <button class="game-info__btnAllin">All in</button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="game-info__results">
+                <table class="game-info__results-table">
+                    <tr>
+                        <th id="name-table" colspan="2">Wyniki</th>
+                    </tr>
+                    <tr>
+                        <td class="left-column">Gry</td>
+                        <td class="right-column"><span id="number"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="left-column">Wygrane</td>
+                        <td class="right-column"><span id="win"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="left-column">Przegrane</td>
+                        <td class="right-column"><span id="loss"></span></td>
+                    </tr>
+                </table>
+                <!-- Za Tobą <span id="number"></span> gier, w tym
+                <span id="win"></span> wygranych i <span id="loss"></span> przegranych -->
+            </div>
+            <!-- <div class="game-info__arrayUp"></div> -->
+        </section>
+        <aside class="downResult"><i class="fas fa-arrow-up"></i><i class="fas fa-arrow-down inactive"></i></aside>
+
+    </div>
+
+    <script src="./js/Wallet.js"></script>
+    <script src="./js/Statistics.js"></script>
+    <script src="./js/Draw.js"></script>
+    <script src="./js/Result.js"></script>
+    <script src="./js/Game.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>

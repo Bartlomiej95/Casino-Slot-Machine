@@ -1,0 +1,349 @@
+@import "variables";
+
+body {
+  margin: 0;
+}
+
+h1 {
+  font-size: $sizeTitle;
+}
+
+#backgroundImage {
+  top: 50%;
+  left: 50%;
+  position: fixed;
+  opacity: 0.3;
+  z-index: -1;
+  min-height: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  transform: translate(-50%, -50%);
+}
+
+.wrapper {
+  width: 90vw;
+  margin: 0 auto;
+  padding-top: 5vh;
+  text-align: center;
+}
+
+.board {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  margin: 3vh 0;
+}
+
+.board__area {
+  position: relative;
+  width: $widthThreeArea;
+  height: $heightThreeArea;
+  border: solid 1px black;
+  background-color: white;
+
+  img {
+    position: absolute;
+    // top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 60%;
+    max-height: 60%;
+    z-index: 2;
+    opacity: 0.9;
+    animation: showImage ease 1s forwards;
+    overflow: hidden;
+  }
+}
+
+.play>* {
+  display: block;
+  margin: 2vh auto;
+}
+
+#bid {
+  border: black 2px solid;
+  width: 50%;
+  height: 20px;
+}
+
+#start {
+  width: 20vw;
+  height: 30px;
+  text-transform: uppercase;
+  background-color: black;
+  color: white;
+}
+
+#start:hover {
+  cursor: pointer;
+  background-color: darkgray;
+}
+
+.game-info {
+  display: block;
+  // flex-wrap: wrap;
+  // justify-items: center;
+  // justify-content: space-around;
+  width: 90%;
+  margin: 0 auto;
+  min-height: 30vh;
+  overflow: hidden;
+
+  &__checkWin {
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    align-self: center;
+    margin-bottom: 20px;
+  }
+
+  &__money {
+    // width: 20vw;
+    color: white;
+    padding: 5 0;
+    font-size: 20px;
+    line-height: 1.5;
+  }
+
+  &__money--wrapper {
+    background: rgb(34, 195, 50);
+    background: linear-gradient(302deg,
+        rgba(34, 195, 50, 1) 0%,
+        rgba(196, 253, 45, 1) 100%);
+    border-radius: 10px;
+    box-shadow: -5px -5px 10px lightgreen;
+    display: grid;
+    width: 50%;
+    margin: 0 auto;
+
+    button {
+      background-color: rgb(167, 10, 10);
+      color: white;
+      margin: 2px 0;
+
+      &:hover {
+        background-color: darkred;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .grid1 {
+    grid-area: 1/1/2/3;
+  }
+
+  .grid2 {
+    grid-area: 2/1/3/2;
+  }
+
+  .grid3 {
+    grid-area: 2/2/3/3;
+  }
+
+  .grid4 {
+    grid-area: 3/1/4/2;
+  }
+
+  .grid5 {
+    grid-area: 3/2/4/3;
+  }
+
+  .grid6 {
+    grid-area: 4/1/5/3;
+  }
+
+  &__results {
+    // width: 100%;
+
+    span {
+      display: block;
+    }
+  }
+
+  &__results-table {
+    background-color: white;
+    overflow-x: auto;
+
+    transform: translateY(50vh);
+
+    table,
+    th,
+    td {
+      border-collapse: collapse;
+      border: 1px solid black;
+      line-height: 1.5;
+      min-width: 40px;
+    }
+
+    #name-table {
+      text-align: center;
+    }
+
+    .left-column {
+      text-align: left;
+    }
+
+    .right-column {
+      // width: 30px;
+    }
+  }
+}
+
+.downResult {
+  position: absolute;
+  right: 10%;
+  bottom: 5%;
+
+  i {
+    // display: inline-block;
+    height: 100%;
+    min-width: 20px;
+    min-height: 20px;
+    cursor: pointer;
+  }
+}
+
+.inactive {
+  display: none;
+}
+
+.active {
+  display: inline-block;
+}
+
+@media (max-width: 880px) and (min-width: 481px) {
+
+  h1 {
+    font-size: $sizeTitle*1.2;
+  }
+
+  .board__area {
+    width: ($widthThreeArea + 5vw);
+    height: ($heightThreeArea + 5vh);
+  }
+
+  .game-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: center;
+    justify-content: space-around;
+    min-height: 30vh;
+
+    &__checkWin {
+      font-size: 22px;
+    }
+
+    &__money {
+      // min-width: 25%;
+      flex-basis: 1;
+      width: 20vw;
+    }
+
+    &__money--wrapper {
+      width: 100%;
+      min-width: 150px;
+    }
+
+    &__results {
+      min-width: 25%;
+      transform: translate(0);
+
+    }
+
+    &__results-table {
+      transform: none;
+
+      table,
+      th,
+      td {
+        border-collapse: collapse;
+        border: 1px solid black;
+        line-height: 1.2;
+        min-width: 25px;
+      }
+    }
+  }
+
+  .downResult {
+    display: none;
+  }
+}
+
+@media (min-width: 881px) {
+
+  h1 {
+    font-size: $sizeTitle * 1.5;
+  }
+
+  .board__area {
+    height: $heightThreeArea + 8vh;
+    width: $widthThreeArea + 5vw;
+  }
+
+  .game-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: center;
+    justify-content: space-around;
+    min-height: 30vh;
+
+    &__checkWin {
+      font-size: 22px;
+    }
+
+    &__money {
+      // min-width: 25%;
+      flex-basis: 1;
+      width: 20vw;
+    }
+
+    &__money--wrapper {
+      width: 100%;
+      min-width: 150px;
+    }
+
+    &__results {
+      min-width: 25%;
+    }
+
+    &__results-table {
+      transform: none;
+
+      table,
+      th,
+      td {
+        border-collapse: collapse;
+        border: 1px solid black;
+        line-height: 1.2;
+        min-width: 25px;
+      }
+    }
+  }
+
+  .downResult {
+    display: none;
+  }
+}
+
+@keyframes showImage {
+  0% {
+    top: 50%;
+    opacity: 1
+  }
+
+  10% {
+    top: 80%;
+    opacity: 0;
+  }
+
+  15% {
+    top: 20%;
+    opacity: 1;
+  }
+
+  100% {
+    top: 50%;
+    opacity: 1;
+  }
+}
